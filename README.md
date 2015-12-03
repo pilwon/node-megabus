@@ -12,7 +12,7 @@
 
 ## Usage
 
-* [Examples](https://github.com/pilwon/node-ib/tree/master/examples)
+* [Examples](https://github.com/pilwon/node-megabus/tree/master/examples)
 
 
 ## Credits
