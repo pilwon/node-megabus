@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/megabus.png?downloads=false&stars=false)](https://npmjs.org/package/megabus) [![NPM](https://nodei.co/npm-dl/megabus.png?months=6)](https://npmjs.org/package/megabus)
 
-`megabus` is [Megabus US](http://us.megabus.com/) ticket finder library for [Node.js](http://nodejs.org/).
+`megabus` is [Megabus (US)](http://us.megabus.com/) ticket finder library for [Node.js](http://nodejs.org/).
 
 
 ## Installation
