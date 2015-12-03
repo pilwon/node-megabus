@@ -1,7 +1,7 @@
 {
   "name": "megabus",
   "description": "Megabus ticket finder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": {
     "name": "Pilwon Huh",
