@@ -2,6 +2,14 @@
 
 const megabus = require('../lib');
 
+megabus.LOCATION_CODES = {
+  'Boston': 94,
+  'Chicago': 100,
+  'Toronto': 145,
+  'New Haven': 122,
+  'New York': 123,
+};
+
 if (module === require.main) {
   let finder = new megabus.TicketFinder({
     startDate: '1/1/2016',
