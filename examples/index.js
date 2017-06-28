@@ -1,62 +1,44 @@
-const megabus = require('../lib');
+const megabus = require('../dist');
 
-megabus.LOCATION_CODES = {
-  'Atlanta': 289,
-  'Boston': 94,
-  'Chicago': 100,
-  'Philadelphia': 127,
-  'Toronto': 145,
-  'New Haven': 122,
-  'New York': 123,
-  'Washington': 142,
-};
+async function main() {
+  const finder = new megabus.TicketFinder('7/1/2017', '7/10/2017', [
+    // New York <-> Atlanta
+    //new megabus.Route('NewYork', 'Atlanta'),
+    //new megabus.Route('Atlanta', 'NewYork'),
 
-function main() {
-  let finder = new megabus.TicketFinder({
-    startDate: '11/18/2016',
-    endDate: '3/14/2017',
-    routes: [
-      // New York <-> Atlanta
-      // new megabus.Route('New York', 'Atlanta'),
-      // new megabus.Route('Atlanta', 'New York'),
+    // New York <-> Boston
+    //new megabus.Route('New York', 'Boston'),
+    //new megabus.Route('Boston', 'NewYork'),
 
-      // New York <-> Boston
-      // new megabus.Route('New York', 'Boston'),
-      // new megabus.Route('Boston', 'New York'),
+    // New York <-> Chicago
+    // new megabus.Route('NewYork', 'Chicago'),
+    // new megabus.Route('Chicago', 'NewYork'),
 
-      // New York <-> Chicago
-      // new megabus.Route('New York', 'Chicago'),
-      // new megabus.Route('Chicago', 'New York'),
+    // New York <-> Philadelphia
+    //new megabus.Route('NewYork', 'Philadelphia'),
+    //new megabus.Route('Philadelphia', 'NewYork'),
 
-      // New York <-> Philadelphia
-      // new megabus.Route('New York', 'Philadelphia'),
-      // new megabus.Route('Philadelphia', 'New York'),
+    // New York <-> New Haven
+    //new megabus.Route('NewYork', 'NewHaven'),
+    //new megabus.Route('NewHaven', 'NewYork'),
 
-      // New York <-> New Haven
-      // new megabus.Route('New York', 'New Haven'),
-      // new megabus.Route('New Haven', 'New York'),
+    // New York <-> Toronto
+    //new megabus.Route('NewYork', 'Toronto'),
+    new megabus.Route('Toronto', 'NewYork'),
 
-      // New York <-> Toronto
-      new megabus.Route('New York', 'Toronto'),
-      new megabus.Route('Toronto', 'New York'),
+    // New York <-> Washington
+    // new megabus.Route('NewYork', 'Washington'),
+    // new megabus.Route('Washington', 'NewYork'),
+  ]);
 
-      // New York <-> Washington
-      // new megabus.Route('New York', 'Washington'),
-      // new megabus.Route('Washington', 'New York'),
-    ]
+  const tickets = await finder.getTickets();
+  // const tickets = await finder.getTicketsInPriceRange(0, 30);
+  tickets.forEach((ticket, idx) => {
+    console.log(`[${idx + 1}] ${ticket}`);
   });
-
-  finder
-    // .getTicketsPromise()
-    .getTicketsInPriceRangePromise(0, 1)
-    .then((tickets) => {
-      tickets.forEach((ticket, idx) => {
-        console.log(`[${idx + 1}] ${ticket.toString()}`);
-      })
-      console.log(`*** ${tickets.length} tickets found ***`);
-    });
+  console.log(`*** ${tickets.length} tickets found ***`);
 }
 
 if (module === require.main) {
-  main();
+  main().catch(console.error);
 }
