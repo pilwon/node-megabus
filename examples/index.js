@@ -1,4 +1,4 @@
-const megabus = require('../dist');
+const megabus = require('../build');
 
 async function main() {
   const finder = new megabus.TicketFinder('9/1/2017', '9/30/2017', [
