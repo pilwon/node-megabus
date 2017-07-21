@@ -1,7 +1,7 @@
 {
   "name": "megabus",
   "description": "Megabus ticket finder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": {
     "name": "Pilwon Huh",
@@ -24,24 +24,23 @@
     "ts",
     "library"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@types/lodash": "^4.14.67",
     "@types/node": "^8.0.5",
     "@types/node-fetch": "^1.6.7",
-    "cheerio": "^1.0.0-rc.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "node-fetch": "^1.7.1"
-  },
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w"
   },
   "devDependencies": {
     "tslint": "^5.4.3",
     "tslint-pilwon": "^0.1.7",
     "typescript": "^2.4.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
   }
 }
