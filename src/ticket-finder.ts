@@ -10,6 +10,8 @@ import { LocationId } from './location';
 import { Route } from './route';
 import { Ticket } from './ticket';
 
+let COUNT = 0;
+
 export class TicketFinder {
   constructor(
     readonly startDate: string,
@@ -48,7 +50,7 @@ export class TicketFinder {
   }
 
   private _buildTickets(data: any, date: moment.Moment, route: Route): Ticket[] {
-    const journeys: Journey[] = data.dates[0].journeys;
+    const journeys: Journey[] = data.journeys;
     return journeys.map((journey) => {
       return new Ticket({
         arrivalTime: journey.arrivalDateTime,
